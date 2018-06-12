@@ -1,0 +1,32 @@
+baseURL = "http://formosaagora.com.br/"
+languageCode = "pt-br"
+log = true
+title = "Formosa Agora"
+theme = "formosaagora"
+disqusShortname = "formosa-agora"
+
+[params]
+  tagline = "O que fazer, onde comer e o que acontece em Formosa e região."
+  description = "A mais completa rede de conteúdo sobre Formosa"
+
+[taxonomies]
+  tags = "tags"
+  editoria = "editoria"
+
+[related]
+    threshold = 50
+    includeNewer = true
+    toLower = true
+
+    [[related.indices]]
+    name  = "editoria"
+    weight = 80
+    [[related.indices]]
+    name  = "title"
+    weight = 70
+    [[related.indices]]
+    name  = "autor"
+    weight = 40
+    [[related.indices]]
+    name  = "tags"
+    weight = 90

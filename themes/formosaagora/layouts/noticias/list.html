@@ -1,0 +1,372 @@
+{{ define "header" }} {{end}}
+
+{{ define "main" }}
+  <div class="main-container container" id="main-container">
+
+    <!-- Content -->
+    <div class="row row-20">
+
+      <!-- Posts -->
+      <div class="col-lg-6 order-lg-2">
+        <section class="section mb-16">
+
+          {{ range first 3 (where .Site.Pages "Params.destaquenoticias" "CoverTop") }}
+            <article class="entry thumb thumb--size-3 thumb--mb-20">
+              <div class="entry__img-holder thumb__img-holder" style="background-image: url('{{.Params.featuredimage}}');">
+                <div class="bottom-gradient"></div>
+                <div class="thumb-text-holder thumb-text-holder--2">
+                  {{ if .Params.Tags }}
+                  <ul class="entry__meta">
+                    {{range first 1 .Params.tags}}
+                    <li>
+                      <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                    </li>
+                    {{end}}
+                  </ul>
+                  {{end}}
+                  <h2 class="thumb-entry-title">
+                    <a href="{{ .URL }}">{{.Title}}</a>
+                  </h2>
+                </div>
+                <a href="single-post-politics.html" class="thumb-url"></a>
+              </div>
+            </article>
+          {{end}}
+
+          <div class="row row-20">
+
+            {{ range first 2 (where .Site.Pages "Params.destaquenoticias" "CoverBottom") }}
+            <div class="col-md-6">
+              <article class="entry">
+                <div class="entry__img-holder">
+                  <a href="{{.URL}}">
+                    <div class="thumb-container thumb-65">
+                      <img src="{{.Params.featuredimage}}" class="entry__img lazyload" alt="{{.Title}}" />
+                    </div>
+                  </a>
+                </div>
+
+                <div class="entry__body">
+                  <div class="entry__header">
+                    {{ if .Params.Tags }}
+                    <ul class="entry__meta">
+                      {{range first 1 .Params.tags}}
+                      <li>
+                        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                      </li>
+                      {{end}}
+                    </ul>
+                    {{end}}
+                    <h2 class="entry__title">
+                      <a href="{{.URL}}">{{.Title}}</a>
+                    </h2>
+                  </div>
+                  <div class="entry__excerpt">
+                    <p>{{ truncate 200 .Params.Descricao }}</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            {{end}}
+
+          </div>
+        </section>
+      </div> <!-- end posts -->
+
+      <!-- Sidebar -->
+      <aside class="col-lg-3 sidebar order-lg-1">
+        <!-- Widget Headlines -->
+        <aside class="widget widget-headlines">
+          <h4 class="widget-title">Últimas Notícias</h4>
+          <!-- Slider -->
+          <div id="owl-headlines" class="owl-carousel owl-theme">
+            <div class="owl-item">
+              <ul class="post-list-small post-list-small--1">
+
+                {{ range first 10 .Pages }}
+                <li class="post-list-small__item">
+                  <article class="post-list-small__entry clearfix">
+                    <div class="post-list-small__body">
+                      <h3 class="post-list-small__entry-title">
+                        <a href="{{.URL}}">{{.Title}}</a>
+                      </h3>
+                    </div>
+                  </article>
+                </li>
+                {{end}}
+              </ul>
+            </div>
+          </div> <!-- end slider -->
+
+        </aside> <!-- end widget headlines -->
+      </aside> <!-- end sidebar -->
+
+      <!-- Sidebar -->
+      <aside class="col-lg-3 sidebar order-lg-3">
+        <!-- Widget Popular Posts -->
+        <aside class="widget widget-popular-posts">
+          <h4 class="widget-title">Rádio Aqui</h4>
+        </aside> <!-- end widget popular posts -->
+      </aside> <!-- end sidebar -->
+
+    </div> <!-- end content -->
+
+    <!-- Ad Banner 728 -->
+    <div class="text-center pb-48">
+      <a href="#">
+        <img src="http://deothemes.com/envato/deus/html/img/content/placeholder_728.jpg" alt="">
+      </a>
+    </div>
+
+    <!-- More Politics News -->
+    <section class="section mb-24">
+      <div class="title-wrap title-wrap--line">
+        <h3 class="section-title">Esporte</h3>
+      </div>
+      <div class="row row-20">
+
+        {{ range first 1 (where .Site.Pages "Params.destaquenoticias" "SubCoverLeft") }}
+        <div class="col-md-3">
+          <article class="entry">
+            <div class="entry__img-holder">
+              <a href="{{.URL}}">
+                <div class="thumb-container thumb-65">
+                  <img src="{{.Params.featuredimage}}" class="entry__img lazyload" alt="{{.Title}}">
+                </div>
+              </a>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__header">
+                {{ if .Params.Tags }}
+                <ul class="entry__meta">
+                  {{range first 1 .Params.tags}}
+                  <li>
+                    <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                  </li>
+                  {{end}}
+                </ul>
+                {{end}}
+                <h2 class="entry__title">
+                  <a href="{{.URL}}">{{.Title}}</a>
+                </h2>
+              </div>
+              <div class="entry__excerpt">
+                <p>{{ truncate 200 .Params.Descricao }}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        {{end}}
+
+        {{ range first 3 (where .Site.Pages "Params.destaquenoticias" "CoverTop") }}
+        <div class="col-md-6">
+          <article class="entry thumb thumb--size-3 thumb--mb-20">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('{{.Params.featuredimage}}');">
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder thumb-text-holder--2">
+                {{ if .Params.Tags }}
+                <ul class="entry__meta">
+                  {{range first 1 .Params.tags}}
+                  <li>
+                    <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                  </li>
+                  {{end}}
+                </ul>
+                {{end}}
+                <h2 class="thumb-entry-title">
+                  <a href="{{.URL}}">{{.Title}}</a>
+                </h2>
+              </div>
+              <a href="{{.URL}}" class="thumb-url"></a>
+            </div>
+          </article>
+        </div>
+        {{end}}
+
+        {{ range first 1 (where .Site.Pages "Params.destaquenoticias" "SubCoverRight") }}
+        <div class="col-md-3">
+          <article class="entry">
+            <div class="entry__img-holder">
+              <a href="{{.URL}}">
+                <div class="thumb-container thumb-65">
+                  <img src="{{.Params.featuredimage}}" class="entry__img lazyload" alt="{{.Title}}">
+                </div>
+              </a>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__header">
+                {{ if .Params.Tags }}
+                <ul class="entry__meta">
+                  {{range first 1 .Params.tags}}
+                  <li>
+                    <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                  </li>
+                  {{end}}
+                </ul>
+                {{end}}
+                <h2 class="entry__title">
+                  <a href="{{.URL}}">{{.Title}}</a>
+                </h2>
+              </div>
+              <div class="entry__excerpt">
+                <p>{{ truncate 200 .Params.Descricao }}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        {{end}}
+
+      </div>
+    </section> <!-- end more politics news -->
+
+    <!-- Carousel posts -->
+    <section class="section mb-24">
+      <div class="title-wrap title-wrap--line title-wrap--pr">
+        <h3 class="section-title">TV e Celebridades</h3>
+      </div>
+
+      <!-- Slider -->
+      <div id="owl-posts" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+
+        {{ range first 5 .Pages }}
+        <article class="entry">
+          <div class="entry__img-holder">
+            <a href="{{.URL}}">
+              <div class="thumb-container thumb-65">
+                <img src="{{.Params.featuredimage}}" class="entry__img lazyload" alt="{{.Title}}">
+              </div>
+            </a>
+          </div>
+          <div class="entry__body">
+            <div class="entry__header">
+              {{ if .Params.Tags }}
+              <ul class="entry__meta">
+                {{range first 1 .Params.tags}}
+                <li>
+                  <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                </li>
+                {{end}}
+              </ul>
+              {{end}}
+              <h2 class="entry__title">
+                <a href="{{.URL}}">{{.Title}}</a>
+              </h2>
+            </div>
+          </div>
+        </article>
+        {{end}}
+
+      </div> <!-- end slider -->
+    </section> <!-- end carousel posts -->
+
+
+    <!-- More Politics News -->
+    <section class="section mb-24">
+      <div class="title-wrap title-wrap--line">
+        <h3 class="section-title">Brasil e Mundo</h3>
+      </div>
+      <div class="row row-20">
+
+        {{ range first 1 (where .Site.Pages "Params.destaquenoticias" "SubCoverLeft") }}
+        <div class="col-md-3">
+          <article class="entry">
+            <div class="entry__img-holder">
+              <a href="{{.URL}}">
+                <div class="thumb-container thumb-65">
+                  <img src="{{.Params.featuredimage}}" class="entry__img lazyload" alt="{{.Title}}">
+                </div>
+              </a>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__header">
+                {{ if .Params.Tags }}
+                <ul class="entry__meta">
+                  {{range first 1 .Params.tags}}
+                  <li>
+                    <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                  </li>
+                  {{end}}
+                </ul>
+                {{end}}
+                <h2 class="entry__title">
+                  <a href="{{.URL}}">{{.Title}}</a>
+                </h2>
+              </div>
+              <div class="entry__excerpt">
+                <p>{{ truncate 200 .Params.Descricao }}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        {{end}}
+
+        {{ range first 3 (where .Site.Pages "Params.destaquenoticias" "CoverTop") }}
+        <div class="col-md-6">
+          <article class="entry thumb thumb--size-3 thumb--mb-20">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('{{.Params.featuredimage}}');">
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder thumb-text-holder--2">
+                {{ if .Params.Tags }}
+                <ul class="entry__meta">
+                  {{range first 1 .Params.tags}}
+                  <li>
+                    <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                  </li>
+                  {{end}}
+                </ul>
+                {{end}}
+                <h2 class="thumb-entry-title">
+                  <a href="{{.URL}}">{{.Title}}</a>
+                </h2>
+              </div>
+              <a href="{{.URL}}" class="thumb-url"></a>
+            </div>
+          </article>
+        </div>
+        {{end}}
+
+        {{ range first 1 (where .Site.Pages "Params.destaquenoticias" "SubCoverRight") }}
+        <div class="col-md-3">
+          <article class="entry">
+            <div class="entry__img-holder">
+              <a href="{{.URL}}">
+                <div class="thumb-container thumb-65">
+                  <img src="{{.Params.featuredimage}}" class="entry__img lazyload" alt="{{.Title}}">
+                </div>
+              </a>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__header">
+                {{ if .Params.Tags }}
+                <ul class="entry__meta">
+                  {{range first 1 .Params.tags}}
+                  <li>
+                    <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}" class="entry__meta-category">{{.}}</a>
+                  </li>
+                  {{end}}
+                </ul>
+                {{end}}
+                <h2 class="entry__title">
+                  <a href="{{.URL}}">{{.Title}}</a>
+                </h2>
+              </div>
+              <div class="entry__excerpt">
+                <p>{{ truncate 200 .Params.Descricao }}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        {{end}}
+
+      </div>
+    </section> <!-- end more politics news -->
+
+  </div> <!-- end main container -->
+
+{{end}}
+
+{{ define "footer" }} {{end}}
